@@ -1,6 +1,6 @@
-const moongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-const userSchema = new moongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -10,14 +10,14 @@ const userSchema = new moongoose.Schema({
   email: {
     type: String,
     required: true,
-    min: 1,
-    max: 255
+    max: 255,
+    min: 1
   },
   password: {
     type: String,
     required: true,
-    min: 6,
-    max: 1024
+    max: 1024,
+    min: 6
   },
   date: {
     type: Date,
@@ -25,4 +25,4 @@ const userSchema = new moongoose.Schema({
   }
 });
 
-module.exports = moongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema);

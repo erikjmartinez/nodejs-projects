@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
-const dotenv = require("dotenv");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
 // Import Routes
 const authRoute = require("./routes/auth");
@@ -16,7 +17,7 @@ mongoose.connect(
 );
 
 // Middleware
-app.use(express.json());
+app.use(bodyParser.json());
 
 // Route Middleware
 app.use("/api/user", authRoute);
